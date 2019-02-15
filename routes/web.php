@@ -12,7 +12,9 @@
 */
 
 
+Route::get('/delete', 'ViewController@delete');
+Route::post('/delete', 'ViewController@delete');
 Route::get('/', 'ViewController@store');
 Route::post('/', 'ViewController@store');
 Route::get('/list', 'ListController@list');
-Route::get('/', 'ListController@list');
+// Route::get('/', 'ListController@list');

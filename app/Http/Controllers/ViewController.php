@@ -13,6 +13,32 @@ class ViewController extends Controller
     // {
         
     // }
+    public function delete(Request $request)
+    {
+        if ($request->has('id')) {
+            // dd($request);
+            $id = $request->input('id');
+            $query = 
+            '   DELETE
+                FROM `songs`
+                WHERE `id` = ?
+                ';
+    
+            DB::delete($query, [$id]);
+            return redirect('/list');
+        }
+
+
+        
+
+        // VIME ID ALE NEMAZE TO Z DATABAZE....NEJAKY REDIRECT ATD? ?? ??????????????????????????
+
+
+
+
+
+
+    }
 
     public function store(Request $request)
     {
@@ -86,11 +112,13 @@ class ViewController extends Controller
             return redirect('/?id='.$song->id);
         }
 
-        
-        
-        
-        $html = view('index', [
+
+        $form_view = view('songs/form', [
             'song' => $song
+        ]);
+        
+        $html = view('index', [           
+            'form' => $form_view
         ]);
 
         return $html;
