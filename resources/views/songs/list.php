@@ -5,10 +5,11 @@
 
         <li class="song">
         
-        <label for="">Name: </label><?= $songie->name ?> <p><?="<iframe width='560' height='315' src='https://www.youtube.com/embed/{$songie->code}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"?></p>
+        <label for="">Name: </label><?= $songie->name ?>
         
-        <a href=<?="/?id={$songie->id}"?>> edit </a> <br>
-        <a href=<?="/delete/?id={$songie->id}"?>> delete </a><br>
+        <a href=<?="/?id={$songie->id}"?>> edit </a> 
+        <a href=<?="/delete/?id={$songie->id}"?>> delete </a>
+        <a href=<?="/detail/?id={$songie->id}"?>> detail </a>
         
 
         </li> <br>

@@ -28,16 +28,24 @@ class ViewController extends Controller
             return redirect('/list');
         }
 
+    }
 
-        
+    public function detail(Request $request)
+    {
+        $id = $request->input('id');
+            $query = 
+            '   SELECT *
+                FROM `songs`
+                WHERE `id` = ?
+                ';
+    
+        $song = DB::selectOne($query, [$id]);
 
-        // VIME ID ALE NEMAZE TO Z DATABAZE....NEJAKY REDIRECT ATD? ?? ??????????????????????????
+        $detail_view = view('songs/detail', [
+            'song' => $song
+        ]);
 
-
-
-
-
-
+        return $detail_view;
     }
 
     public function store(Request $request)
